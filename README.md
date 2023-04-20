@@ -1,4 +1,4 @@
-# Minha Versao do projeto do curso "Javascrpi Manipulando o DOM" da Alura na formação "Desenvolva aplicações Web com JS" 
+# Minha Versao do projeto do curso "Javascript Manipulando o DOM" da Alura na formação "Desenvolva aplicações Web com JS" 
 
 >Todas as imagens e os stylos foram baixados do repositorio do projeto da ALURA
 

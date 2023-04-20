@@ -65,6 +65,52 @@ main {
     height: 80%;
 }
 
+.selecao-de-cores{
+    color: var(--main-branco);
+    height: 10%;
+    position: absolute;
+    bottom: 3%;
+    left: 10%;
+    width: 20%;
+    min-width: 40px;
+    min-height: 20px;
+    text-align: center;
+    font-size:clamp(1em, 1em + 1vw, 5em);
+    clip-path: none
+    
+}
+
+.chat{
+    color: var(--main-branco);
+    height: 20%;
+    position: absolute;
+    bottom: 3%;
+    left: 43%;
+    width: 20%;
+    min-width: 40px;
+    min-height: 20px;
+    text-align: center;
+    font-size:clamp(1em, 1em + 1vw, 5em);
+    
+}
+
+.botao-robotron{
+    margin-top: 1em;
+    font-size: 2em;
+    text-transform: uppercase;
+    padding: 0.2em 1em;
+    float: right;
+    border: 3px solid var(--main-branco);
+    background: var(--main-branco);
+    clip-path: polygon(100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 0);
+    cursor: pointer;
+    font-family: 'Teko', sans-serif;
+}
+
+.botao-robotron:hover {
+    background: var(--main-preto);
+    color: var(--main-branco)
+}
 /****************************** Equipamentos *****/
 
 .equipamentos {

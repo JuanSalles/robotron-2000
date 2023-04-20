@@ -30,13 +30,10 @@ const listaDePecas = [{
 
 const atributosDoRobo= {
     forca: 0,
-    blindagem: 0,
-    nucleos: 0,
-    pernas: 0,
-    foguetes: 0
+    energia: 0,
+    poder: 0,
+    velocidade: 0
 }
-
-
 
 function exibir (contador, tagDoControle) {
     if((`${contador}`).length < 2){
@@ -56,8 +53,13 @@ function filtroDelista (event){
     return partToChange;
 }
 
+function mudarImagem (imagem) {
+    document.querySelector("#robotron").src = "img/" + corDoRobo + imagem;
+}
+
 function atributos (){
 
+  
     atributosDoRobo.forca = (listaDePecas[0].contador*30) + (listaDePecas[3].contador*10) + (listaDePecas[4].contador*20);
     atributosDoRobo.energia = (listaDePecas[2].contador*30);
     atributosDoRobo.poder = (listaDePecas[0].contador*20) + (listaDePecas[1].contador*20) + (listaDePecas[2].contador*20) + (listaDePecas[3].contador*20) + (listaDePecas[4].contador*20);
@@ -71,6 +73,10 @@ function atributos (){
 
 }
 
+document.querySelector("#botao-robotron").addEventListener("click", (event) => {
+    srcDaImg = "/robotron.png";
+    mudarImagem(srcDaImg);
+});
 
 document.querySelector("#robotron").addEventListener("click", (event) => {
 
@@ -95,7 +101,7 @@ document.querySelector("#robotron").addEventListener("click", (event) => {
             corDoRobo = "Vermelho";
             break;
     }
-    document.querySelector("#robotron").src = "img/" + corDoRobo + srcDaImg;
+    mudarImagem(srcDaImg);
 })
 
 
@@ -104,25 +110,28 @@ document.querySelector("[data-controle]").addEventListener("click", (event) => {
     if(event.target.id.includes("soma")){
         const peca = filtroDelista(event);
         srcDaImg = peca.src;
+        mudarImagem(srcDaImg);
         if(("soma" + peca.nome) == (event.target.id)){
-            if(peca.contador<99){
+            if(peca.contador<12){
                 peca.contador++;
                 atributos();
                 exibir(peca.contador, document.querySelector(`#${peca.nome}`));
-                document.querySelector("#robotron").src = "img/" + corDoRobo + srcDaImg;
-                
+            }else{
+                document.querySelector("#chat-robotron").textContent = "Peraí mizeravi, tudo tem limite!";
+                srcDaImg = "/robotron.png";
+                mudarImagem(srcDaImg);
             }
         }
         
     }else if(event.target.id.includes("subtrai")){
         const peca = filtroDelista(event);
         srcDaImg = peca.src;
+        mudarImagem(srcDaImg);
         if(("subtrai" + peca.nome) == (event.target.id)){
             if(peca.contador>0){
                 peca.contador--;
                 atributos();
                 exibir(peca.contador, document.querySelector(`#${peca.nome}`));
-                document.querySelector("#robotron").src = "img/" + corDoRobo + srcDaImg;
                 
             }
         }
